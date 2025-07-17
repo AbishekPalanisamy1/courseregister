@@ -6,7 +6,6 @@ import com.example.CourseRegistration.Service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -36,6 +35,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .requestMatchers( "/api/**").hasAnyRole("USER", "ADMIN")
         .requestMatchers( "/api/**").hasRole("ADMIN")
         .requestMatchers( "/api/**").hasRole("ADMIN")
+        .requestMatchers(("/public/**")).permitAll()
         .anyRequest().authenticated()
         .and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

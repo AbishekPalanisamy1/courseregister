@@ -33,7 +33,6 @@ public class StudentService {
       return studentRepo.displaybyname(name);
     
    }
-
 //    public StudentDetails deletestudent(int rollno) {
 //     StudentDetails student = studentRepo.findById((long)rollno)
 //         .orElseThrow(() -> new RuntimeException("Did not found any values for the rollno:" + rollno));
